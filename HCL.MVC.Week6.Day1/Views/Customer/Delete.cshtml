@@ -1,0 +1,41 @@
+﻿@model HCL.MVC.Week6.Day1.Models.CustomerC
+@{
+    ViewBag.Title = "EditCustomer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>EditCustomer</h2>
+<div class="container">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        var BirthDate = Model.DOB.HasValue ? Model.DOB.Value.ToShortDateString() : "No Date";
+        <div class="form-group">
+
+            @Html.LabelFor(c => c.CustomerName) :
+            @Html.DisplayFor(c => c.CustomerName, new { @class = "form-control", autocomplete = "off" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(c => c.City) :
+            @Html.DisplayFor(c => c.City, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(c => c.DOB) :
+            @Html.DisplayFor(c=>c.DOB, new { @class = "form-control" })
+           
+        </div>
+        <div class="form-group">
+            
+            @Html.LabelFor(c=>c.Gender) :
+            @Html.DisplayFor(c=>c.Gender,new { @class="form-control"})
+
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(c => c.MembershipType) :
+            @Html.DisplayFor(c => c.MembershipType.Type, new { @class="form-control"})
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Delete" id="btnSDelete" class="btn btn-outline-primary" />
+        </div>
+    }
+</div>

@@ -1,0 +1,44 @@
+﻿@model HCL.MVC.Week6.Day1.Models.MovieC
+
+@{
+    ViewBag.Title = "SpecificDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2><marquee><font face="algerian" size="10" color="blue">Movie Details</font></marquee></h2>
+
+@if (Model != null)
+{
+    <h2>@Model.Name</h2>
+    <ul>
+        <b>Release Date</b>:
+        <li>@Model.ReleaseDate.ToShortDateString()</li>
+        @*<b>Genere</b>:
+            <li>@Model.Genre</li>*@
+        <b>Days Added</b>:
+        <li>@Model.AddDate.ToShortDateString()</li>
+        <b>Available Stock</b>
+        <li>@Model.AvailableStock</li>
+    </ul>
+}
+else
+{
+    <text>No Record</text>
+}
+
+<h6>@Html.ActionLink("Back To List", "Index", "Movies")</h6>
+@*@{
+    List<string> Months = new List<string> { "january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december" };
+}
+@foreach (var s in Months)
+{
+    @FormatM(s)
+}
+@helper FormatM(string Mon)
+{
+    var color = "black";
+    if (Mon == "august")
+    {
+        color = "red";
+    }
+}*@

@@ -1,0 +1,34 @@
+﻿@model List<HCL.MVC.Week6.Day1.Models.CustomerC>
+@{
+    ViewBag.Title = "IndexDiff";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2><marquee><font face="calibre" size="10" color="red">Our Customers</font></marquee></h2>
+<h3>@Html.ActionLink("New Customer", "Create", "Customer")</h3>
+<table class="table table-bordered table-hover alert">
+    <tr>
+        <th>Customer Id</th>
+        <th>Name</th>
+        <th>Membership Type</th>
+        <th>Edit Option</th>
+    </tr>
+    @foreach (var o in Model)
+    {
+        <tr>
+            <td>@o.Id</td>
+            <td>
+                @Html.ActionLink(o.CustomerName, "SpecificDetails", "Customer", new { Id = o.Id }, new { @class = "btn btn-link" })
+            </td>
+            <td>@o.MembershipType.Type</td>
+            <td>
+                @Html.ActionLink("Edit", "EditCustomer", "Customer", new { Id = o.Id }, new { @class="btn btn-secondary"})
+                @Html.ActionLink("Delete", "Delete", "Customer", new { Id = o.Id }, new { @class="btn btn-secondary"})
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+

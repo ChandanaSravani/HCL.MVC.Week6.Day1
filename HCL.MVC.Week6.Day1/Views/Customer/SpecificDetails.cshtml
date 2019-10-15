@@ -1,0 +1,32 @@
+﻿@model HCL.MVC.Week6.Day1.Models.CustomerC
+@{
+    ViewBag.Title = "SpecificDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2><marquee><font face="Times New Roman" size="10" color="green">Our Customer Details</font></marquee></h2>
+
+@if (Model != null)
+{
+    <h2>@Model.CustomerName</h2>
+    <ul>
+        <b>Date Of Birth</b>:
+        <li>@Model.DOB</li>
+        <b>Gender</b>:
+        <li>@Model.Gender</li>
+        <b>City</b>:
+        <li>@Model.City</li>
+        <b>Duration</b>:
+        <li>@Model.MembershipType.Duration</li>
+        <b>SignUp Fee</b>:
+        <li>@Model.MembershipType.SignUpFee</li>
+        <b>Discount</b>:
+        <li>@Model.MembershipType.Discount%</li>
+    </ul>
+}
+else
+{
+    <text>No Record</text>
+}
+
+<h6>@Html.ActionLink("Back To List", "Index", "Customer")</h6>

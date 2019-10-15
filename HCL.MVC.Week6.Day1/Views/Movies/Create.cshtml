@@ -1,0 +1,42 @@
+﻿@model HCL.MVC.Week6.Day1.Models.MovieC
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+<div class="container">
+    @using (Html.BeginForm())
+    {
+        <div class="form-group">
+            @Html.LabelFor(c => c.Name)
+            @Html.TextBoxFor(c => c.Name, new { @class = "form-control", autocomplete = "off" })
+            @Html.ValidationMessageFor(c=>c.Name)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(c => c.ReleaseDate)
+            @Html.TextBoxFor(c => c.ReleaseDate, new { @class = "form-control", type = "date" })
+            @Html.ValidationMessageFor(c=>c.ReleaseDate)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(c => c.AddDate)
+            @Html.TextBoxFor(c => c.AddDate, new { @class = "form-control", type = "date" })
+            @Html.ValidationMessageFor(c=>c.AddDate)
+        </div>
+        <div class="form-group">
+            @*<label>Available Stock</label>*@
+            @Html.LabelFor(c=>c.AvailableStock)
+            @Html.TextBoxFor(c=>c.AvailableStock,new { @class="form-control"})
+            @Html.ValidationMessageFor(c=>c.AvailableStock)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(c => c.GenreType)
+            @Html.DropDownListFor(c => c.GenreTypeId,ViewBag.GenreTypeId as SelectList, new { @class = "form-control" })
+            @Html.ValidationMessageFor(c => c.GenreTypeId)
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Submit" id="btnSubmit" class="btn btn-outline-primary" />
+        </div>
+            
+     }
+</div>

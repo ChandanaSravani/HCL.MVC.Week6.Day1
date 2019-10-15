@@ -1,0 +1,21 @@
+﻿@model HCL.MVC.Week6.Day1.ViewModel.MovieCustomer1ViewModel
+@{
+    ViewBag.Title = "CustomerDisplay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<h2><font face="algerian" size="6" color="Green"><marquee><u><i>Customer Details</i></u></marquee></font></h2>
+<h3><i>Customer Name:</i> <font color="red">@Model.CustomerName</font></h3>*@
+<div class="jumbotron" style="border:0.5px solid lightGray">
+    <h2><font face="algerian" size="6" color="Green"><marquee><u><i>Customer Details</i></u></marquee></font></h2>
+    <hr class="my-4" />
+    <p>
+        <i>Customer Name:</i> <font color="red">@Model.customer.CustomerName</font>
+    </p>
+    <ul type="disc">
+        @foreach (var c in Model.movies)
+        {
+            <li>@c.Name</li>
+        }
+    </ul>
+</div>
