@@ -85,6 +85,10 @@ namespace HCL.MVC.Week6.Day1.Controllers
             VMC.movies = m1;
             return View(VMC);
         }
+        public ActionResult Test()
+        {
+            return View();
+        }
 
         [HttpGet]
         
